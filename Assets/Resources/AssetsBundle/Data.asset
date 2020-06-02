@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cadf1f7d7bf4f431788d7254842245eb, type: 3}
+  m_Name: Data
+  m_EditorClassIdentifier: 
+  strTableCN:
+  - "\u91D1\u5E01"
+  - "\u94BB\u77F3"
+  - "\u4EBA\u6C11\u5E01"
+  - "\u6781\u6162"
+  - "\u8F83\u6162"
+  - "\u4E2D\u7B49"
+  - "\u8F83\u5FEB"
+  - "\u6781\u5FEB"
+  - "\u6781\u6162"
+  - "\u8F83\u6162"
+  - "\u4E2D\u7B49"
+  - "\u8F83\u5FEB"
+  - "\u6781\u5FEB"
+  - "\u5E9F\u571F\u9EC4\u6C99"
+  - "\u672A\u547D\u540DA"
+  - "\u672A\u547D\u540DB"
+  - "\u672A\u547D\u540DC"
+  - "\u672A\u547D\u540DD"
+  - "\u672A\u547D\u540DE"
+  - "\u672A\u547D\u540DF"
+  - "\u672A\u547D\u540DG"
+  waveDatas:
+  - WaveID: 1
+    BossData: 20/30/50
+    ZombiesCount: 5
+    Assault: 0
+    Damage: 0
+    UseScene: 1-A
+  zombiesDatas:
+  - ZombiesID: 1
+    ZombiesType: 0
+  - ZombiesID: 2
+    ZombiesType: 0
+  - ZombiesID: 3
+    ZombiesType: 0
+  - ZombiesID: 4
+    ZombiesType: 0
+  - ZombiesID: 5
+    ZombiesType: 0
+  - ZombiesID: 6
+    ZombiesType: 0
+  - ZombiesID: 7
+    ZombiesType: 1
+  - ZombiesID: 8
+    ZombiesType: 2
+  - ZombiesID: 9
+    ZombiesType: 0
+  - ZombiesID: 10
+    ZombiesType: 1
+  - ZombiesID: 11
+    ZombiesType: 2
+  - ZombiesID: 12
+    ZombiesType: 0
+  - ZombiesID: 13
+    ZombiesType: 0
+  - ZombiesID: 14
+    ZombiesType: 1
+  - ZombiesID: 15
+    ZombiesType: 2
+  - ZombiesID: 16
+    ZombiesType: 0
+  - ZombiesID: 17
+    ZombiesType: 0
+  - ZombiesID: 18
+    ZombiesType: 0
+  - ZombiesID: 19
+    ZombiesType: 0
+  - ZombiesID: 20
+    ZombiesType: 1
+  - ZombiesID: 21
+    ZombiesType: 2
+  - ZombiesID: 22
+    ZombiesType: 0
+  - ZombiesID: 23
+    ZombiesType: 0
+  - ZombiesID: 24
+    ZombiesType: 1
+  - ZombiesID: 25
+    ZombiesType: 2
+  - ZombiesID: 26
+    ZombiesType: 0
+  - ZombiesID: 27
+    ZombiesType: 0
+  - ZombiesID: 28
+    ZombiesType: 0

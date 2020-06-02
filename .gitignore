@@ -1,0 +1,13 @@
+/Temp
+/Assembly-CSharp.csproj
+/Assembly-CSharp-Editor.csproj
+/FPSShoot.sln
+/NavMeshComponents.csproj
+/NavMeshComponentsEditor.csproj
+/RuntimeTests.csproj
+/Library
+/Logs
+/obj
+/Packages
+/.vs
+vscode/

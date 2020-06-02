@@ -1,0 +1,31 @@
+﻿public enum EventTypeEnum
+{
+    PlayerBeHit,//玩家被攻击
+    FortBeHit,//障碍被攻击
+    PlayerAddHp,//玩家加血
+    SetStage,//设置关卡信息
+    SetTitleText,//设置标题string
+    BeFarHitImage,//被远程攻击显示图片
+    ShowNowBullet,//显示当前子弹数
+    ShowNowBulletString,//显示string子弹数
+    ShowTotalBullet,//显示总子弹数
+    ShowHp,//显示当前Hp
+    ShowFortHp,//显示栅栏血量
+    SetLimit,//设置灵敏度
+    ShotAwared,//设计奖励
+    SendCharactorInfo,//发送人物信息
+    ShowMoney,//显示当前金钱数
+    CloseButtonPanel,//关闭按钮界面
+    ShowZombiesHp,//显示当前僵尸血量
+    ShowZombiesHead,//显示当前僵尸爆头
+    ShowZombiesHitDamage,
+    ShowSkillImage,//显示选择完技能后的图片
+    SetWhitchBalance,//设置白平衡
+    ZomAllDamage,
+    HelpCanvas, //血条显示和伤害文字的canvas 
+    OutSideCloseRed,//外部关闭红点
+    CallBackRevive,//复活回调
+    AddReviveCoins,//添加复活币
+    BalanceDoubleReward,//结算界面双倍金币
+    ShowMoneyPurchasePar,//显示内购成功后特效
+}

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c043ce84fd4744fb3b015f88d30e83ed, type: 3}
+  m_Name: Scene1
+  m_EditorClassIdentifier: 
+  sceneDotDatas:
+  - AreaID: A
+    sceneDotDatas:
+    - waveid: 0
+      poscount: 2
+    - waveid: 1
+      poscount: 2
+  - AreaID: B
+    sceneDotDatas:
+    - waveid: 0
+      poscount: 3
+    - waveid: 1
+      poscount: 3
+    - waveid: 2
+      poscount: 3
+  - AreaID: C
+    sceneDotDatas:
+    - waveid: 0
+      poscount: 3
+    - waveid: 1
+      poscount: 3
+    - waveid: 2
+      poscount: 3
+  - AreaID: D
+    sceneDotDatas:
+    - waveid: 0
+      poscount: 3
+    - waveid: 1
+      poscount: 3
+    - waveid: 2
+      poscount: 3
+  - AreaID: E
+    sceneDotDatas:
+    - waveid: 0
+      poscount: 3
+    - waveid: 1
+      poscount: 3
+    - waveid: 2
+      poscount: 3
