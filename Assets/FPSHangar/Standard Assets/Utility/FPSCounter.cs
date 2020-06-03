@@ -3,7 +3,11 @@ using UnityEngine;
 
 namespace UnityStandardAssets.Utility
 {
+<<<<<<< HEAD
    //[RequireComponent(typeof (GUIText))]
+=======
+    //[RequireComponent(typeof (GUIText))]
+>>>>>>> 3f6843efe8a77428223184835104db02f3c8eb23
     public class FPSCounter : MonoBehaviour
     {
         const float fpsMeasurePeriod = 0.5f;
