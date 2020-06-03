@@ -18,10 +18,12 @@ public class DebugText : MonoBehaviour
     public Vector3 Vector3 = Vector3.forward;
     private void Start()
     {
-        x = red.transform.position.x;
-        y = red.transform.position.y;
+        x = red.transform.eulerAngles.x;
+        y = red.transform.eulerAngles.y;
+        /*
         z = red.transform.position.z;
         r = Vector3.Distance(_target.transform.position, red.transform.position);
+        */
     }
 
     private void Update()
@@ -33,14 +35,15 @@ public class DebugText : MonoBehaviour
             x += m_x;
             y += m_y;
         }
+        red.rotation = Quaternion.AngleAxis(x, Vector3.up) * Quaternion.AngleAxis(y, Vector3.right);
+        return;
+        /*
         Debug.DrawLine(_target.transform.position, red.transform.position, Color.blue);
         red.transform.position= new Vector3(x, y, z);
         Vector3 nor = _target.position - new Vector3(x,y,z);
         _move.transform.position = _target.position - nor.normalized * r;
         Debug.DrawLine(_target.transform.position, _target.position - nor.normalized * r,Color.red);
-        
-       
-       
+        */
         // Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5fInput.GetAxis("Vertical");, 0.5f, 0));
         // Debug.DrawLine(ray.origin, ray.direction * 1000, Color.red);
     }

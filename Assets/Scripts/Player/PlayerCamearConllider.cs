@@ -6,10 +6,6 @@ using UnityEditor;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using RootMotion;
-<<<<<<< HEAD
-//using UnityEngine.Experimental.PlayerLoop;
-=======
->>>>>>> 3f6843efe8a77428223184835104db02f3c8eb23
 using DG.Tweening;
 
 public class PlayerCamearConllider : MonoBehaviour
