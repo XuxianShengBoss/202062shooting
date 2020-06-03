@@ -33,10 +33,8 @@ public class PlayerCamearConllider : MonoBehaviour
     public Vector2 _HorRotateConstrainAangle;//-45 35
     private Vector3 _PlayerCapsule;
     private Vector3 _GunCamrar;
-    //public Vector2 _VerRotateConstrainAangle;//-15 31
+
     public CameraControllerFPS _cam;
-    //aimZ进行约束大小
-    //public Vector2 _Aim_HorZ;
 
     [Tooltip("玩家")]
     public Transform playertarget;
@@ -53,8 +51,10 @@ public class PlayerCamearConllider : MonoBehaviour
         _rotX = NormalizeAngle(this.transform.localEulerAngles.x);
         _CamearTarget_rotX = NormalizeAngle(Target.transform.localEulerAngles.x);
         _CamearTarget_rotY = NormalizeAngle(Target.transform.localEulerAngles.y);
+
         _PlayerCapsule = Target.transform.position;
         _GunCamrar = this.transform.position;
+
         //存储位移偏移量
         _offset = Target.position - transform.position;
         _roundOffset = playertarget.position - Target.position;
@@ -89,6 +89,7 @@ public class PlayerCamearConllider : MonoBehaviour
         float angleY = NormalizeAngle(this.transform.localEulerAngles.y);
         if (horInput != 0 || verInput != 0)
         {
+            Debug.LogError(angleX+ "  angleX");
             float _horInput = horInput > 0 ? -horInput : Mathf.Abs(horInput);
             _rotY = (angleY >= _cemearHor.y && _horInput < 0) || (angleY <= _cemearHor.x && _horInput > 0) ? _rotY : _rotY + _horInput;
             _CamearTarget_rotY = (angleY >= _cemearHor.y && _horInput < 0) || (angleY <= _cemearHor.x && _horInput > 0) ? _CamearTarget_rotY : _CamearTarget_rotY + _horInput;
@@ -108,9 +109,9 @@ public class PlayerCamearConllider : MonoBehaviour
             // Quaternion.Euler(X, 0, 0);   基于X轴的旋转 垂直旋转
             //一个向量乘以一个四元数（使用Quaternion.Euler方法经选装角度转化为一个四元数，结果是基于旋转偏移位置，得到的是向量基于旋转的偏移位置           
             Target.position = playertarget.position - (camearTarget * _roundOffset);
-            Target.LookAt(playertarget.position);
+            Target.LookAt(playertarget);
             transform.position = Target.position - (rotation * _offset);
-            transform.LookAt(Target.position);
+            transform.LookAt(Target);
             _playrRotateTarget.position = playertarget.position - (_playerrotate * _playrRotateTargetOffset);
             _playrRotateTarget.LookAt(playertarget);
         }
@@ -228,7 +229,7 @@ public class PlayerCamearConllider : MonoBehaviour
     #endregion
     public void PlayerCamearReset()
     {
-
+        return;
         this.transform.DOLocalMove(_GunCamrar, 0.5f);
         this.transform.DOLocalRotate(Vector3.zero, 0.5f);
         Target.DOLocalMove(_PlayerCapsule, 0.5f);
