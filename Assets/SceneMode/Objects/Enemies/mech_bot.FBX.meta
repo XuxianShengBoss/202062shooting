@@ -1,73 +1,197 @@
 fileFormatVersion: 2
 guid: 64cf631be91cc4aeda41e6c687988581
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: mech_neck
-    100002: mech_right_lower_leg
-    100004: mech_root
-    100006: mech_main_body
-    100008: mech_right_toe
-    100010: mech_left_upper_leg
-    100012: mech_right_ankle
-    100014: //RootNode
-    100016: mech_left_ankle
-    100018: mech_left_toe
-    100020: mech_right_upper_leg
-    100022: mech_left_lower_leg
-    100024: mech_head
-    400000: mech_neck
-    400002: mech_right_lower_leg
-    400004: mech_root
-    400006: mech_main_body
-    400008: mech_right_toe
-    400010: mech_left_upper_leg
-    400012: mech_right_ankle
-    400014: //RootNode
-    400016: mech_left_ankle
-    400018: mech_left_toe
-    400020: mech_right_upper_leg
-    400022: mech_left_lower_leg
-    400024: mech_head
-    2300000: mech_neck
-    2300002: mech_right_lower_leg
-    2300004: mech_main_body
-    2300006: mech_right_toe
-    2300008: mech_left_upper_leg
-    2300010: mech_right_ankle
-    2300012: mech_left_ankle
-    2300014: mech_left_toe
-    2300016: mech_right_upper_leg
-    2300018: mech_left_lower_leg
-    2300020: mech_head
-    3300000: mech_neck
-    3300002: mech_right_lower_leg
-    3300004: mech_main_body
-    3300006: mech_right_toe
-    3300008: mech_left_upper_leg
-    3300010: mech_right_ankle
-    3300012: mech_left_ankle
-    3300014: mech_left_toe
-    3300016: mech_right_upper_leg
-    3300018: mech_left_lower_leg
-    3300020: mech_head
-    4300000: mech_right_upper_leg
-    4300002: mech_right_lower_leg
-    4300004: mech_right_ankle
-    4300006: mech_right_toe
-    4300008: mech_main_body
-    4300010: mech_neck
-    4300012: mech_head
-    4300014: mech_left_upper_leg
-    4300016: mech_left_lower_leg
-    4300018: mech_left_ankle
-    4300020: mech_left_toe
-    7400000: Take 001
-    7400002: __preview__Take 001
-    11100000: //RootNode
+  serializedVersion: 19300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: mech_neck
+  - first:
+      1: 100002
+    second: mech_right_lower_leg
+  - first:
+      1: 100004
+    second: mech_root
+  - first:
+      1: 100006
+    second: mech_main_body
+  - first:
+      1: 100008
+    second: mech_right_toe
+  - first:
+      1: 100010
+    second: mech_left_upper_leg
+  - first:
+      1: 100012
+    second: mech_right_ankle
+  - first:
+      1: 100014
+    second: //RootNode
+  - first:
+      1: 100016
+    second: mech_left_ankle
+  - first:
+      1: 100018
+    second: mech_left_toe
+  - first:
+      1: 100020
+    second: mech_right_upper_leg
+  - first:
+      1: 100022
+    second: mech_left_lower_leg
+  - first:
+      1: 100024
+    second: mech_head
+  - first:
+      4: 400000
+    second: mech_neck
+  - first:
+      4: 400002
+    second: mech_right_lower_leg
+  - first:
+      4: 400004
+    second: mech_root
+  - first:
+      4: 400006
+    second: mech_main_body
+  - first:
+      4: 400008
+    second: mech_right_toe
+  - first:
+      4: 400010
+    second: mech_left_upper_leg
+  - first:
+      4: 400012
+    second: mech_right_ankle
+  - first:
+      4: 400014
+    second: //RootNode
+  - first:
+      4: 400016
+    second: mech_left_ankle
+  - first:
+      4: 400018
+    second: mech_left_toe
+  - first:
+      4: 400020
+    second: mech_right_upper_leg
+  - first:
+      4: 400022
+    second: mech_left_lower_leg
+  - first:
+      4: 400024
+    second: mech_head
+  - first:
+      23: 2300000
+    second: mech_neck
+  - first:
+      23: 2300002
+    second: mech_right_lower_leg
+  - first:
+      23: 2300004
+    second: mech_main_body
+  - first:
+      23: 2300006
+    second: mech_right_toe
+  - first:
+      23: 2300008
+    second: mech_left_upper_leg
+  - first:
+      23: 2300010
+    second: mech_right_ankle
+  - first:
+      23: 2300012
+    second: mech_left_ankle
+  - first:
+      23: 2300014
+    second: mech_left_toe
+  - first:
+      23: 2300016
+    second: mech_right_upper_leg
+  - first:
+      23: 2300018
+    second: mech_left_lower_leg
+  - first:
+      23: 2300020
+    second: mech_head
+  - first:
+      33: 3300000
+    second: mech_neck
+  - first:
+      33: 3300002
+    second: mech_right_lower_leg
+  - first:
+      33: 3300004
+    second: mech_main_body
+  - first:
+      33: 3300006
+    second: mech_right_toe
+  - first:
+      33: 3300008
+    second: mech_left_upper_leg
+  - first:
+      33: 3300010
+    second: mech_right_ankle
+  - first:
+      33: 3300012
+    second: mech_left_ankle
+  - first:
+      33: 3300014
+    second: mech_left_toe
+  - first:
+      33: 3300016
+    second: mech_right_upper_leg
+  - first:
+      33: 3300018
+    second: mech_left_lower_leg
+  - first:
+      33: 3300020
+    second: mech_head
+  - first:
+      43: 4300000
+    second: mech_right_upper_leg
+  - first:
+      43: 4300002
+    second: mech_right_lower_leg
+  - first:
+      43: 4300004
+    second: mech_right_ankle
+  - first:
+      43: 4300006
+    second: mech_right_toe
+  - first:
+      43: 4300008
+    second: mech_main_body
+  - first:
+      43: 4300010
+    second: mech_neck
+  - first:
+      43: 4300012
+    second: mech_head
+  - first:
+      43: 4300014
+    second: mech_left_upper_leg
+  - first:
+      43: 4300016
+    second: mech_left_lower_leg
+  - first:
+      43: 4300018
+    second: mech_left_ankle
+  - first:
+      43: 4300020
+    second: mech_left_toe
+  - first:
+      74: 7400000
+    second: Take 001
+  - first:
+      74: 7400002
+    second: __preview__Take 001
+  - first:
+      111: 11100000
+    second: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 3
     materialSearch: 1
     materialLocation: 0
@@ -100,6 +224,7 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
@@ -107,18 +232,19 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 0
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -127,10 +253,14 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips:
+  - 1861745e0f9ac7a43a6346d69dcae2e9
+  - 01b59c81cdb2448c9915d08c63d9a6de
+  - 3e687de9308a84695b5046d6871b8e0a
+  - 730d89f2529c74fb996d71a66d2e313f
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -140,13 +270,16 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 0.012
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 1
   humanoidOversampling: 1
+  avatarSetup: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

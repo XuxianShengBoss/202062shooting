@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using RootMotion;
-using UnityEngine.Experimental.PlayerLoop;
+//using UnityEngine.Experimental.PlayerLoop;
 using DG.Tweening;
 
 public class PlayerCamearConllider : MonoBehaviour
