@@ -6,7 +6,6 @@ using UnityEditor;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using RootMotion;
-using UnityEngine.Experimental.PlayerLoop;
 using DG.Tweening;
 
 public class PlayerCamearConllider : MonoBehaviour
@@ -17,16 +16,20 @@ public class PlayerCamearConllider : MonoBehaviour
     public Transform Target;
     [Tooltip("Player父级节点")]
     public Transform _platerRoot;
-    public float _rotY;
-    public float _rotX;
-    public float _CamearTarget_rotX;
-    public float _CamearTarget_rotY;
+    public Transform _playrRotateTarget;
+    private float _rotY;
+    private float _rotX;
+    private float _CamearTarget_rotX;
+    private float _CamearTarget_rotY;
+    private float _playrRotateTargetX = 0, _playrRotateTargetY = 0;
     public float rotSpeed = 1.5f;
-    public float inputspeed=0.05f;
+    public float inputspeed = 0.05f;
     private Vector3 _offset;
     private Vector3 _roundOffset;
+    private Vector3 _playrRotateTargetOffset;
     public Vector2 _cemearHor;//-45 35
-    public Vector2 _cemearVer;//-45 35    
+    public Vector2 _cemearVer;//-45 35  
+    //
     public Vector2 _HorRotateConstrainAangle;//-45 35
     private Vector3 _PlayerCapsule;
     private Vector3 _GunCamrar;
@@ -48,13 +51,14 @@ public class PlayerCamearConllider : MonoBehaviour
         _instance = this;
         _rotY = NormalizeAngle(transform.localEulerAngles.y);
         _rotX = NormalizeAngle(this.transform.localEulerAngles.x);
-        _CamearTarget_rotX =NormalizeAngle(Target.transform.localEulerAngles.x);
-        _CamearTarget_rotY =NormalizeAngle(Target.transform.localEulerAngles.y);
+        _CamearTarget_rotX = NormalizeAngle(Target.transform.localEulerAngles.x);
+        _CamearTarget_rotY = NormalizeAngle(Target.transform.localEulerAngles.y);
         _PlayerCapsule = Target.transform.position;
         _GunCamrar = this.transform.position;
         //存储位移偏移量
         _offset = Target.position - transform.position;
         _roundOffset = playertarget.position - Target.position;
+        _playrRotateTargetOffset = playertarget.position - _playrRotateTarget.position;
         transform.LookAt(Target.position);
         UIEveDrag.Get(_Drag_image.gameObject).onDrag += Swip;
     }
@@ -68,13 +72,13 @@ public class PlayerCamearConllider : MonoBehaviour
         _verInput = 0;
     }
 
-    public void Swip(PointerEventData eventData) 
+    public void Swip(PointerEventData eventData)
     {
-        SetHorVer(eventData.delta.x*0.05f, eventData.delta.y*0.05f);
+        SetHorVer(eventData.delta.x * 0.05f, eventData.delta.y * 0.05f);
     }
 
     public void SetHorVer(float horInput, float verInput)
-    { 
+    {
         _horInput = horInput;
         _verInput = verInput;
     }
@@ -86,16 +90,20 @@ public class PlayerCamearConllider : MonoBehaviour
         if (horInput != 0 || verInput != 0)
         {
             float _horInput = horInput > 0 ? -horInput : Mathf.Abs(horInput);
-            _rotY = (angleY >= _cemearHor.y && _horInput < 0) || (angleY <= _cemearHor.x && _horInput > 0) ? _rotY : _rotY + _horInput ;
-            _CamearTarget_rotY = (angleY >= _cemearHor.y && _horInput < 0) || (angleY <= _cemearHor.x && _horInput > 0) ? _CamearTarget_rotY : _CamearTarget_rotY + _horInput ;
-
+            _rotY = (angleY >= _cemearHor.y && _horInput < 0) || (angleY <= _cemearHor.x && _horInput > 0) ? _rotY : _rotY + _horInput;
+            _CamearTarget_rotY = (angleY >= _cemearHor.y && _horInput < 0) || (angleY <= _cemearHor.x && _horInput > 0) ? _CamearTarget_rotY : _CamearTarget_rotY + _horInput;
             _rotX = (angleX > _cemearVer.y && verInput < 0) || (angleX < _cemearVer.x && verInput > 0) ? _rotX : _rotX - verInput;
             _CamearTarget_rotX = (angleX > _cemearVer.y && verInput < 0) || (angleX < _cemearVer.x && verInput > 0) ? _CamearTarget_rotX : _CamearTarget_rotX - verInput;
+            horInput = (angleY >= _cemearHor.y && _horInput < 0) || (angleY <= _cemearHor.x && _horInput > 0) ? 0 : horInput;
+            verInput = (angleX > _cemearVer.y && verInput < 0) || (angleX < _cemearVer.x && verInput > 0) ? 0 : verInput;
+            _playrRotateTargetX -= verInput;
+            _playrRotateTargetY += horInput;
         }
         if (horInput != 0 || verInput != 0)
         {
             Quaternion rotation = Quaternion.Euler(_rotX, -_rotY, 0);
             Quaternion camearTarget = Quaternion.Euler(_CamearTarget_rotX, -_CamearTarget_rotY, 0);
+            Quaternion _playerrotate = Quaternion.Euler(_playrRotateTargetX, _playrRotateTargetY, 0);
             // Quaternion.Euler(0, Y, 0);   基于Y轴的旋转 水平旋转
             // Quaternion.Euler(X, 0, 0);   基于X轴的旋转 垂直旋转
             //一个向量乘以一个四元数（使用Quaternion.Euler方法经选装角度转化为一个四元数，结果是基于旋转偏移位置，得到的是向量基于旋转的偏移位置           
@@ -103,10 +111,12 @@ public class PlayerCamearConllider : MonoBehaviour
             Target.LookAt(playertarget.position);
             transform.position = Target.position - (rotation * _offset);
             transform.LookAt(Target.position);
-        }       
+            _playrRotateTarget.position = playertarget.position - (_playerrotate * _playrRotateTargetOffset);
+            _playrRotateTarget.LookAt(playertarget);
+        }
     }
-
-    public void Swip(float horInput,float verInput)
+    #region Demo
+    public void Swip(float horInput, float verInput)
     {
         if (horInput != 0 || verInput != 0)
             SetHorVer(horInput, verInput);
@@ -115,9 +125,9 @@ public class PlayerCamearConllider : MonoBehaviour
         Vector2 Roatet = Vector2.zero;
         if (_horInput != 0)
         {
-            float _horInput =this._horInput > 0 ? -this._horInput : Mathf.Abs(this._horInput);
+            float _horInput = this._horInput > 0 ? -this._horInput : Mathf.Abs(this._horInput);
             _rotY = (angleY >= _cemearHor.y && _horInput < 0) || (angleY <= _cemearHor.x && _horInput > 0) ? _rotY : _rotY + _horInput * rotSpeed;
-            _CamearTarget_rotY= (angleY >= _cemearHor.y && _horInput < 0) || (angleY <= _cemearHor.x && _horInput > 0) ? _CamearTarget_rotY : _CamearTarget_rotY + _horInput * rotSpeed;  
+            _CamearTarget_rotY = (angleY >= _cemearHor.y && _horInput < 0) || (angleY <= _cemearHor.x && _horInput > 0) ? _CamearTarget_rotY : _CamearTarget_rotY + _horInput * rotSpeed;
             #region
             /*
             float inputhorY = Mathf.Abs(_horInput);            
@@ -151,9 +161,9 @@ public class PlayerCamearConllider : MonoBehaviour
             #endregion
         }
         if (_verInput != 0)
-        {            
+        {
             _rotX = (angleX > _cemearVer.y && _verInput < 0) || (angleX < _cemearVer.x && _verInput > 0) ? _rotX : _rotX - _verInput * rotSpeed;
-            _CamearTarget_rotX= (angleX > _cemearVer.y && _verInput < 0) || (angleX < _cemearVer.x && _verInput > 0) ? _CamearTarget_rotX : _CamearTarget_rotX - _verInput * rotSpeed;
+            _CamearTarget_rotX = (angleX > _cemearVer.y && _verInput < 0) || (angleX < _cemearVer.x && _verInput > 0) ? _CamearTarget_rotX : _CamearTarget_rotX - _verInput * rotSpeed;
             #region
             /*
             Roatet.y = (angleX > _VerRotateConstrainAangle.y && _verInput < 0) || (angleX < _VerRotateConstrainAangle.x && _verInput > 0) ? _verInput :0;
@@ -176,18 +186,18 @@ public class PlayerCamearConllider : MonoBehaviour
             }
             */
             #endregion
-        }      
+        }
         //_cam.SetHorVer(Roatet);
         if (_horInput != 0 || _verInput != 0)
         {
             Quaternion rotation = Quaternion.Euler(_rotX, -_rotY, 0);
-            Quaternion camearTarget= Quaternion.Euler(_CamearTarget_rotX, -_CamearTarget_rotY, 0);
+            Quaternion camearTarget = Quaternion.Euler(_CamearTarget_rotX, -_CamearTarget_rotY, 0);
             // Quaternion.Euler(0, Y, 0);   基于Y轴的旋转 水平旋转
             // Quaternion.Euler(X, 0, 0);   基于X轴的旋转 垂直旋转
             //一个向量乘以一个四元数（使用Quaternion.Euler方法经选装角度转化为一个四元数，结果是基于旋转偏移位置，得到的是向量基于旋转的偏移位置           
             Target.position = playertarget.position - (camearTarget * _roundOffset);
             Target.LookAt(playertarget.position);
-            transform.position = Target.position - (rotation * _offset);          
+            transform.position = Target.position - (rotation * _offset);
             transform.LookAt(Target.position);
         }
         /*
@@ -215,13 +225,14 @@ public class PlayerCamearConllider : MonoBehaviour
         #endregion
         _cam.SetHorVer(new Vector2(_horInput, _verInput));
     }
-    public void PlayerCamearReset() 
+    #endregion
+    public void PlayerCamearReset()
     {
 
-        this.transform.DOLocalMove(_GunCamrar,0.5f);
+        this.transform.DOLocalMove(_GunCamrar, 0.5f);
         this.transform.DOLocalRotate(Vector3.zero, 0.5f);
-        Target.DOLocalMove(_PlayerCapsule,0.5f);
-        this.transform.DOLookAt(Target.position,0.5f);
+        Target.DOLocalMove(_PlayerCapsule, 0.5f);
+        this.transform.DOLookAt(Target.position, 0.5f);
         Target.DOLocalRotate(Vector3.zero, 0.5f);
         /*
         Vector3 vector = this.transform.position;
