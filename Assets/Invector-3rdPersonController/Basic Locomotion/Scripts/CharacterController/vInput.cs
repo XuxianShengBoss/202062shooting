@@ -500,7 +500,6 @@ namespace Invector.vCharacterController
         /// <returns></returns>
         public float GetAxis()
         {
-            return 0;
             if (string.IsNullOrEmpty(buttonName) || !IsButtonAvailable(this.buttonName) || isKey) return 0;
 
             // mobile
